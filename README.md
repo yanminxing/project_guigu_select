@@ -426,7 +426,7 @@ module.exports = {
   },
 ```
 
-**当我们运行`pnpm run format`的时候，会把代码直接格式化**
+**当我们运行`yarn run format`的时候，会把代码直接格式化**
 
 ### 2.5 配置husky
 
@@ -453,7 +453,7 @@ npx husky-init
 ```
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-pnpm run format
+yarn run format
 ```
 
 当我们对代码进行commit操作的时候，就会执行命令，对代码进行格式化，然后再提交。
