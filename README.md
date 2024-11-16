@@ -598,6 +598,8 @@ app.use(ElementPlus, {
 
 **Element Plus全局组件类型声明**
 
+如果您使用 Volar，请在 `tsconfig.json` 中通过 `compilerOptions.type` 指定全局组件类型。
+
 ```
 // tsconfig.json
 {
@@ -612,35 +614,58 @@ app.use(ElementPlus, {
 
 ### 2.8 src别名的配置
 
+```bash
+# 下载依赖
+yarn add  -D @types/node
+```
+
 在开发项目的时候文件与文件关系可能很复杂，因此我们需要给src文件夹配置一个别名！！！
 
-```
-// vite.config.ts
-import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-export default defineConfig({
-    plugins: [vue()],
-    resolve: {
-        alias: {
-            "@": path.resolve("./src") // 相对路径别名配置，使用 @ 代替 src
-        }
-    }
-})
-```
-
-**TypeScript 编译配置**
+在 tsconfig.json 文件中配置路径别名
 
 ```
-// tsconfig.json
 {
-  "compilerOptions": {
-    "baseUrl": "./", // 解析非相对模块的基地址，默认是当前目录
-    "paths": { //路径映射，相对于baseUrl
-      "@/*": ["src/*"]
-    }
+ "compilerOptions": {
+  /*Vite 路径别名报错*/
+  "baseUrl": "./",
+  "paths" : {
+   "@": ["src"],
+   "@/*": ["src/*"],
+   "@router/*": ["src/router/*"]
   }
+ },
+ "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
+```
+
+**TypeScript 编译配置** 在 vite.config.ts配置
+
+```
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'  // 在 ts 模块中加载 node 核心模块需要安装 node 的类型补充模块: npm i -D @types/node
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    // Vite2设置别名路径方式一
+/*    alias: {
+      "@": path.resolve( "./src")
+    }*/
+    alias: [
+        {
+          find: '@',
+          replacement: path.resolve( './src')
+        },
+      {
+        find: '@router',
+        replacement: path.resolve( './src/router')
+      },
+    ]
+  }
+})
+
 ```
 
 ### 2.9 环境变量的配置
