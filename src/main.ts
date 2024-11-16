@@ -1,5 +1,16 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+/**
+ * @description 项目入口函数
+ * */
+function main() {
+    const app = createApp(App)
+
+    app.mount('#app')
+}
+
+main()
+
+
+
