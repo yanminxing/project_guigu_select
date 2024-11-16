@@ -138,7 +138,7 @@ yarn add eslint-plugin-vue@latest @typescript-eslint/eslint-plugin@latest @types
 
 #### 4 配置学习
 
-1 **eslint.config.js配置文件**
+1 **.eslintrc.cjs配置文件**
 
 ```
 module.exports = {
@@ -215,7 +215,7 @@ module.exports = {
 npm install -D eslint-plugin-import eslint-plugin-vue eslint-plugin-node eslint-plugin-prettier eslint-config-prettier eslint-plugin-node @babel/eslint-parser
 ```
 
-**3 修改eslint.config.js配置文件**
+**3 修改.eslintrc.cjs配置文件**
 
 ```js
 // @see https://eslint.bootcss.com/docs/rules/
@@ -304,7 +304,7 @@ package.json新增两个运行脚本
 1 依赖下载
 
 ```
-npm install -D eslint-plugin-prettier prettier eslint-config-prettier
+yarn add -D eslint-plugin-prettier prettier eslint-config-prettier
 ```
 
 1 .prettierrc.json添加规则
