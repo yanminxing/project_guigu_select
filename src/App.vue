@@ -1,11 +1,12 @@
 <template>
   <div class="box">
     <h1>Hello World</h1>
+    <el-button type="primary" :icon="Plus">Click me</el-button>
   </div>
 </template>
 
 <script setup lang="ts">
-var box = '111111111';
+import { Plus } from '@element-plus/icons-vue';
 </script>
 
 <style scoped>
