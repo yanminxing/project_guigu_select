@@ -4,40 +4,25 @@ This template should help get you started developing with Vue 3 and TypeScript i
 
 Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
 
+# 1 项目介绍
 
- # 1 项目介绍
+## 1.1 项目引用
 
-## 1.1 项目引用  
- [尚硅谷Vue项目实战硅谷甄选，vue3项目+TypeScript前端项目一套通关](https://www.bilibili.com/video/BV1Xh411V7b5?vd_source=0a0dd058ef849bffba564af91a70780d&spm_id_from=333.788.player.switch&p=15)   
+[尚硅谷Vue项目实战硅谷甄选，vue3项目+TypeScript前端项目一套通关](https://www.bilibili.com/video/BV1Xh411V7b5?vd_source=0a0dd058ef849bffba564af91a70780d&spm_id_from=333.788.player.switch&p=15)
 
-## 1.2 项目介绍  
+## 1.2 项目介绍
+
 - node版本：v18.20.0
 - yarn版本：v1.22.17
 
-## 1.3 项目初始化  
+## 1.3 项目初始化
+
 ```handlebars
-# 使用vite创建项目
-yarn create vite  
-# 选择vue和typescript模板 
-# 下载依赖
-yarn
-# 启动项目
-yarn dev
-
-
-# git 初始化
-git init
-# 添加远程仓库
-git remote add origin 仓库git
-# 提交代码
-git add *
-git commit -m "first commit"
-# 推送代码
-git push -u origin master
-
+# 使用vite创建项目 yarn create vite # 选择vue和typescript模板 # 下载依赖 yarn #
+启动项目 yarn dev # git 初始化 git init # 添加远程仓库 git remote add origin
+仓库git # 提交代码 git add * git commit -m "first commit" # 推送代码 git push -u
+origin master
 ```
-
-
 
 # 2 项目的搭建(p15-)
 
@@ -225,7 +210,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    jest: true
+    jest: true,
   },
   /* 指定如何解析语法 */
   parser: 'vue-eslint-parser',
@@ -236,15 +221,15 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     jsxPragma: 'React',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   /* 继承已有的规则 */
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   plugins: ['vue', '@typescript-eslint'],
   /*
@@ -273,8 +258,8 @@ module.exports = {
     'vue/multi-word-component-names': 'off', // 要求组件名称始终为 “-” 链接的单词
     'vue/script-setup-uses-vars': 'error', // 防止<script setup>使用的变量<template>被标记为未使用
     'vue/no-mutating-props': 'off', // 不允许组件 prop的改变
-    'vue/attribute-hyphenation': 'off' // 对模板中的自定义组件强制执行属性命名样式
-  }
+    'vue/attribute-hyphenation': 'off', // 对模板中的自定义组件强制执行属性命名样式
+  },
 };
 ```
 
@@ -346,7 +331,7 @@ yarn add -D eslint-plugin-prettier prettier eslint-config-prettier
 我们的项目中使用scss作为预处理器，安装以下依赖：
 
 ```
-pnpm add sass sass-loader stylelint postcss postcss-scss postcss-html stylelint-config-prettier stylelint-config-recess-order stylelint-config-recommended-scss stylelint-config-standard stylelint-config-standard-vue stylelint-scss stylelint-order stylelint-config-standard-scss -D
+yarn add sass sass-loader stylelint postcss postcss-scss postcss-html stylelint-config-prettier stylelint-config-recess-order stylelint-config-recommended-scss stylelint-config-standard stylelint-config-standard-vue stylelint-scss stylelint-order stylelint-config-standard-scss -D
 ```
 
 #### 2.4.1`.stylelintrc.cjs`**配置文件**
@@ -1014,7 +999,7 @@ request.interceptors.response.use((response) => {
 export default request;
 ```
 
-### 2.14  项目后台地址
+### 2.14 项目后台地址
 
 贾成豪老师代码仓库地址:https://gitee.com/jch1011/vue3_admin_template-bj1.git
 
@@ -1034,9 +1019,9 @@ https://www.isqqw.com/echarts-doc/zh/option.html#title
 
 http://datav.aliyun.com/portal/school/atlas/area_selector
 
-## 3  项目开发
+## 3 项目开发
 
-### 3.1  使用路由vue-router（p30）
+### 3.1 使用路由vue-router（p30）
 
 1 下载依赖
 
@@ -1044,7 +1029,7 @@ http://datav.aliyun.com/portal/school/atlas/area_selector
 yarn add vue-router@4
 ```
 
-2  定义路由
+2 定义路由
 
 1）src/router/index.ts
 
@@ -1056,7 +1041,7 @@ yarn add vue-router@4
 >
 > `path: '/:pathMatch(.*)*'` 中的 `path` 表示该路由的路径，这里是 `/`，意味着它匹配根路径。
 >
-> `:pathMatch(.*)*` 是一个动态片段，它使用了路由参数（以冒号 `:` 开头），其中 `pathMatch` 是参数的名称，而 `(.*)*` 是参数的[正则表达式模式](https://so.csdn.net/so/search?q=正则表达式模式&spm=1001.2101.3001.7020)。   `(.*)` 是一个正则表达式，它匹配任意字符（零次或多次）。这意味着它可以捕获任何路径片段。`*` 表示捕获的路径片段可以重复零次或多次。这允许我们捕获整个路径。所以，`/:pathMatch(.*)*` 可以匹配任意路径，包括根路径和子路径
+> `:pathMatch(.*)*` 是一个动态片段，它使用了路由参数（以冒号 `:` 开头），其中 `pathMatch` 是参数的名称，而 `(.*)*` 是参数的[正则表达式模式](https://so.csdn.net/so/search?q=正则表达式模式&spm=1001.2101.3001.7020)。 `(.*)` 是一个正则表达式，它匹配任意字符（零次或多次）。这意味着它可以捕获任何路径片段。`*` 表示捕获的路径片段可以重复零次或多次。这允许我们捕获整个路径。所以，`/:pathMatch(.*)*` 可以匹配任意路径，包括根路径和子路径
 
 ```typescript
 import { createRouter, createWebHashHistory } from 'vue-router';
@@ -1074,11 +1059,10 @@ export const router = createRouter({
   scrollBehavior: () => {
     return {
       left: 0,
-      top: 0
+      top: 0,
     };
-  }
+  },
 });
-
 ```
 
 src/router/staticRoutes.ts
@@ -1091,40 +1075,40 @@ export const staticRoutes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/login/index.vue')
+    component: () => import('@/views/login/index.vue'),
   },
   {
     path: '/home',
     name: 'Home',
-    component: () => import('@/views/home/index.vue')
+    component: () => import('@/views/home/index.vue'),
   },
   {
     path: '/error404',
     name: 'Error404',
-    component: () => import('@/views/pageError404/index.vue')
+    component: () => import('@/views/pageError404/index.vue'),
   },
   {
     path: '/:pathMatch(.*)*',
     redirect: '/error404',
-    name: 'Any'
-  }
-]
+    name: 'Any',
+  },
+];
 ```
 
 3 注册路由src/main.ts
 
 ```typescript
- import { router } from '@/router';
- app.use(router);
+import { router } from '@/router';
+app.use(router);
 ```
 
 4 使用路由src/App.vue
 
 ```vue
- <router-view></router-view>
+<router-view></router-view>
 ```
 
-### 3.2  使用pinia
+### 3.2 使用pinia
 
 1 下载依赖
 
@@ -1132,7 +1116,7 @@ export const staticRoutes = [
 yarn add pinia
 ```
 
-2  创建
+2 创建
 
 src/store/index.ts
 
@@ -1151,8 +1135,8 @@ export default pinia;
 src/main.ts
 
 ```typescript
- import pinia from '@/store';
- app.use(pinia);
+import pinia from '@/store';
+app.use(pinia);
 ```
 
 4 创建模块
@@ -1171,7 +1155,7 @@ import { UserInfoModel } from '@/store/modules/type.ts';
 const useUserStore = defineStore('user', {
   state: (): UserInfoModel => {
     return {
-      token: ''
+      token: '',
     };
   },
   getters: {},
@@ -1201,19 +1185,16 @@ const useUserStore = defineStore('user', {
       } catch (e) {
         return Promise.reject('请求出错');
       }
-    }
-  }
+    },
+  },
 });
 
 export default useUserStore;
-
 ```
-
-
 
 ## 4 解决的错误
 
-### 4.1  引入vue-router时候，编辑器爆红
+### 4.1 引入vue-router时候，编辑器爆红
 
 1 报错信息
 
@@ -1232,4 +1213,3 @@ cannot find module 'vue-router' or its corresponding type declarations
   }
 }
 ```
-
