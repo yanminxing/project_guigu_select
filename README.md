@@ -465,7 +465,7 @@ yarn run format
 安装包
 
 ```
-pnpm add @commitlint/config-conventional @commitlint/cli -D
+yarn add @commitlint/config-conventional @commitlint/cli -D
 ```
 
 添加配置文件，新建`commitlint.config.cjs`(注意是cjs)，然后添加下面的代码：
@@ -528,7 +528,7 @@ module.exports = {
 'build',//编译相关的修改，例如发布版本、对项目构建或者依赖的改动
 ```
 
-配置husky
+配置husky（没有用，手动添加文件.husky/commit-msg）
 
 ```
 npx husky add .husky/commit-msg
